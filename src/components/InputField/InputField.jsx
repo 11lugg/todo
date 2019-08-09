@@ -14,7 +14,6 @@ class InputField extends Component {
 
   lockInputValue = event => {
     event.preventDefault();
-    console.log(this.state.inputValue);
     this.setState({ showValue: this.state.inputValue });
     this.setState({ inputValue: "" });
     this.handleInputChange();
