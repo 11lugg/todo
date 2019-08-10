@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "./InputField.module.scss";
+import styles from "./NameList.module.scss";
 
-class InputField extends Component {
+class NameList extends Component {
   state = { inputValue: "", showValue: "", isInputVisible: true };
 
   handleChange = event => {
@@ -22,30 +22,24 @@ class InputField extends Component {
   removeInput = () => {
     if (this.state.isInputVisible) {
       return (
-        <form action="">
+        <form action="" className={styles.nameList}>
           <input
             type="text"
             onChange={this.handleChange}
             value={this.state.inputValue}
+            placeholder="Name your list...."
           />
-          <input
-            type="submit"
-            value="Create Task"
-            onClick={this.lockInputValue}
-          />
+          <input type="submit" value="Create" onClick={this.lockInputValue} />
         </form>
       );
+    } else {
+      return <h3 className={styles.namedList}>{this.state.showValue}</h3>;
     }
   };
 
   render() {
-    return (
-      <div>
-        {this.removeInput()}
-        <h3>{this.state.showValue}</h3>
-      </div>
-    );
+    return <section>{this.removeInput()}</section>;
   }
 }
 
-export default InputField;
+export default NameList;
