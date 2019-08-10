@@ -1,0 +1,15 @@
+header {
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
