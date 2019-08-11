@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import styles from "./ListItem.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faStop } from "@fortawesome/free-solid-svg-icons";
+import { grey } from "ansi-colors";
 
 class ListItem extends Component {
   state = {
     term: "",
     items: [],
-    complete: false
+    isComplete: false
   };
 
   onChange = event => {
@@ -23,16 +24,18 @@ class ListItem extends Component {
   };
 
   listItems = () => {
+    const complete = { textDecorationLine: "line-through", color: "grey" };
+    const notComplete = { color: "black" };
+    const isTaskComplete = this.state.isComplete ? complete : notComplete;
     return this.state.items.map((item, index) => (
-      <li type="radio" key={index}>
-        <FontAwesomeIcon icon={faCheckSquare} onClick={this.completeTask} />{" "}
-        {item}
+      <li key={index} style={isTaskComplete}>
+        <FontAwesomeIcon icon={faStop} onClick={this.completeTask} /> {item}
       </li>
     ));
   };
 
   completeTask = () => {
-    this.setState({ complete: !this.state.complete });
+    this.setState({ isComplete: !this.state.isComplete });
   };
 
   render() {
