@@ -3,6 +3,7 @@ import styles from "./ListItem.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStop } from "@fortawesome/free-solid-svg-icons";
 import { grey } from "ansi-colors";
+import IndItem from "../IndItem/IndItem";
 
 class ListItem extends Component {
   state = {
@@ -28,9 +29,7 @@ class ListItem extends Component {
     const notComplete = { color: "black" };
     const isTaskComplete = this.state.isComplete ? complete : notComplete;
     return this.state.items.map((item, index) => (
-      <li key={index} style={isTaskComplete}>
-        <FontAwesomeIcon icon={faStop} onClick={this.completeTask} /> {item}
-      </li>
+      <IndItem item={item} key={index} style={isTaskComplete} />
     ));
   };
 
