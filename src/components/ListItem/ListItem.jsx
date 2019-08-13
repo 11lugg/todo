@@ -29,7 +29,7 @@ class ListItem extends Component {
     const notComplete = { color: "black" };
     const isTaskComplete = this.state.isComplete ? complete : notComplete;
     return this.state.items.map((item, index) => (
-      <IndItem item={item} key={index} style={isTaskComplete} />
+      <IndItem item={item} key={index} />
     ));
   };
 
