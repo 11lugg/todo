@@ -28,12 +28,39 @@ class App extends Component {
       });
   };
 
+  signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+        this.setState({
+          user: null
+        });
+      })
+      .catch(function(error) {
+        // An error happened.
+        console.log(error);
+      });
+  };
+
+  signInAndOut = () => {
+    if (this.state.user === null) {
+      return this.signIn;
+    } else {
+      return this.signOut;
+    }
+  };
+
   render() {
+    const signIn = "Sign in with Google";
+    const signOut = "Sign out";
+    const signInAndOutText = this.state.user ? signOut : signIn;
     return (
       <div>
         <header>
           <h1>My To Do List</h1>
-          <button onClick={this.signIn}>Sign in with Google</button>
+          <button onClick={this.signInAndOut()}>{signInAndOutText}</button>
         </header>
         <main className="App">
           <ListContainer />
