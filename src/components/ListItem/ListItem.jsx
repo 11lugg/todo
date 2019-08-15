@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import styles from "./ListItem.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStop } from "@fortawesome/free-solid-svg-icons";
-import { grey } from "ansi-colors";
 import IndItem from "../IndItem/IndItem";
 
 class ListItem extends Component {
@@ -25,9 +22,6 @@ class ListItem extends Component {
   };
 
   listItems = () => {
-    const complete = { textDecorationLine: "line-through", color: "grey" };
-    const notComplete = { color: "black" };
-    const isTaskComplete = this.state.isComplete ? complete : notComplete;
     return this.state.items.map((item, index) => (
       <IndItem item={item} key={index} />
     ));

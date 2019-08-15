@@ -19,7 +19,7 @@ class IndItem extends Component {
     return (
       <li>
         <input type="checkbox" onClick={this.handleClick} />
-        <span style={isTaskComplete}>{this.props.item}</span>
+        <span>{this.props.item}</span>
       </li>
     );
   }
