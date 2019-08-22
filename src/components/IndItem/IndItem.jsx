@@ -3,8 +3,7 @@ import styles from "./IndItem.module.scss";
 
 class IndItem extends Component {
   state = {
-    checked: false,
-    filteredItems: []
+    checked: false
   };
   handleClick = () => {
     this.setState({
@@ -19,7 +18,7 @@ class IndItem extends Component {
     return (
       <li>
         <input type="checkbox" onClick={this.handleClick} />
-        <span>{this.props.item}</span>
+        <span style={isTaskComplete}>{this.props.item}</span>
       </li>
     );
   }
